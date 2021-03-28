@@ -26,14 +26,14 @@
                     </div>
                     @endif
                     <div class="text-center">
-                    <form action="{{ route('menu-list') }}" method="get">
+                    <form action="{{ route('ingredient-list') }}" method="get">
                     <label><b>Search </b><input type="text" name="term" value="{{ $term }}" /></label>
                     </form>
                     </div>
 
                     {{ $ingredient->withQueryString()->links() }}
                     <table class="table">
-                        <thead>
+                        <thead style="text-align: center;">
                             <tr>
                             <th scope="col">Code</th>
                             <th scope="col">Name</th>
