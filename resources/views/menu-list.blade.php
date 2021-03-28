@@ -60,7 +60,7 @@
                             <tr>
                             <td> <a href="{{ route('menu-view', ['menu' => $row->menu_code,]) }}">
                                 {{ $row->menu_code }}</a></td>
-                            <td> <a href="">
+                            <td> <a href="{{ route('menu-view', ['menu' => $row->menu_code,]) }}">
                                 {{ $row->menu_name }}</a></td>
                             <td>{{ $row->menu_price }}</td>
                             <td>ADD</td>
