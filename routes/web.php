@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,9 @@ Route::get('/category', [CategoryController::class, 'list'])
 
 Route::get('/category/{category}', [CategoryController::class, 'show'])
 ->name('category-view');
+Route::get('/admin/ingredient', [IngredientController::class, 'list'])->name('admin.ingredient')->middleware('is_admin');;
+
+
+Route::get('/menu', [MenuController::class, 'list'])->name('menu-list');
+/*test Petch
+//restadf
