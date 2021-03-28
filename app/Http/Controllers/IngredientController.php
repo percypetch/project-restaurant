@@ -10,7 +10,9 @@ class IngredientController extends Controller
 
     function list(Request $request)
     {
-        
+        function __construct() {
+            $this->middleware('is_admin');
+        } 
         $data = $request->getQueryParams();
         $query = Ingredient::orderBy('ingredient_code');
         $term = (key_exists('term', $data)) ? $data['term'] : '';
