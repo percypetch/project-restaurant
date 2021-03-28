@@ -5,7 +5,27 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">User Interface</div>
+                <div class="card-header ">{{$title}} {{ $menu->menu_code }}
+                <div class="text-center">
+                <nav>
+                    <br>
+                    <ul class="list-group list-group-horizontal " style="display: inline-flex;">
+                        <li class="list-group-item">
+                            <a href="">Show Menu</a> 
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">Update</a> 
+                        </li>
+
+                        <li class="list-group-item">
+                        <a href="">Delete</a>
+                        </li>
+                    </ul>
+                </nav>
+                </div>
+
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -25,28 +45,10 @@
                         <strong>{{ $message }}</strong>
                     </div>
                     @endif
-                    
-                    <table class="table">
-                        <thead>
-                            <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Code</th>
-                            <th scope="col">Name</th>
-                            </tr>
-                        </thead>
-                        @php($i=1)
-                        @foreach($ingredient as $row)
-                        <tbody>
-                            <tr>
-                            <th scope="row">{{$i++}}</th>
-                            <td><a href="{{ route('ingredient-view', ['ingredient' => $row->ingredient_code,]) }}">
-                            {{ $row->ingredient_code }}</a></td>
-                            <td>{{ $row->ingredient_name }}</td>
-                            </tr>
-                        @endforeach  
-                        </tbody>
+                    Code :: {{ $ingredient->ingredient_code }} <br>
+                    Name ::{{ $ingredient->ingredient_name }} <br>
                     </table>
-
+                    
                 </div>
             </div>
         </div>

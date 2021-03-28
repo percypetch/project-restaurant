@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Models\Ingredient;
+use App\Models\Menu;
 
 class IngredientController extends Controller
 {
@@ -30,4 +31,15 @@ class IngredientController extends Controller
             'ingredient' => $query->paginate(5),
         ]);
     }
+
+    function show($menuCode=0,$ingredientCode=0) {
+        $menu = Menu::where('menu_code', $menuCode)->firstOrFail();
+        $ingredient = Ingredient::where('ingredient_code', $ingredientCode)->firstOrFail();
+        return view('ingredient-view', [
+            'title' => "{$this->title} : View",
+            'menu' => $menu,
+            'ingredient' => $ingredient
+        ]);
+    }
+
 }
