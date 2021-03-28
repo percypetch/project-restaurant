@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+<<<<<<< HEAD
 use App\Http\Controllers\IngredientController;
+=======
+use App\Http\Controllers\MenuController;
+>>>>>>> c26972e048a73bac9685fd3dfdf5cd1f9aad6741
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +27,12 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
+<<<<<<< HEAD
 Route::get('/admin/ingredient', [IngredientController::class, 'list'])->name('admin.ingredient')->middleware('is_admin');;
 
 
+=======
+Route::get('/menu', [MenuController::class, 'list'])->name('menu-list');
+>>>>>>> c26972e048a73bac9685fd3dfdf5cd1f9aad6741
 /*test Petch
 //restadf
