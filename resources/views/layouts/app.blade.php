@@ -34,6 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <a href=""><li>Menu</li></a>
+                        <li><a href="{{ route('category-list') }}">Category</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
