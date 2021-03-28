@@ -56,8 +56,6 @@
 
                     Code :: {{ $menu->menu_code }} <br>
                     Name ::{{ $menu->menu_name }} <br>
-                    Category
-                    Ingredient
                     Price ::{{ $menu->menu_price }} <br>
                     Description ::{{ $menu->menu_description }}
                     </table>

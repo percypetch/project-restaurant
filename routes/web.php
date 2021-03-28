@@ -28,7 +28,9 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('/category', [CategoryController::class, 'list'])->name('category-list');
 Route::get('/category/{category}', [CategoryController::class, 'show'])->name('category-view');
 
-Route::get('/ingredient', [IngredientController::class, 'list'])->name('ingredient-list')->middleware('is_admin');;
+Route::get('/ingredient', [IngredientController::class, 'list'])
+->name('ingredient-list');
+
 Route::get('/ingredient/{ingredient}', [IngredientController::class, 'show'])
 ->name('ingredient-view');
 

@@ -25,7 +25,15 @@
                         <strong>{{ $message }}</strong>
                     </div>
                     @endif
-                    
+  
+                    <div class="text-center">
+                    <form action="{{ route('ingredient-list') }}" method="get">
+                    <label><b>Search </b><input type="text" name="term" value="{{ $term }}" /></label>
+                    </form>
+                    </div>
+
+                    {{ $ingredient->withQueryString()->links() }}
+
                     <table class="table">
                         <thead>
                             <tr>
