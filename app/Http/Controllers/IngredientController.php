@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Models\Ingredient;
 use App\Models\Menu;
-
+use App\Models\Category;
 class IngredientController extends Controller
 {
     private $title = 'Ingredient';
@@ -32,9 +32,10 @@ class IngredientController extends Controller
         ]);
     }
 
-    function show($menuCode=0,$ingredientCode=0) {
-        $menu = Menu::where('menu_code', $menuCode)->firstOrFail();
+    function show($ingredientCode=0,$menuCode=0) {
         $ingredient = Ingredient::where('ingredient_code', $ingredientCode)->firstOrFail();
+        $menu = Menu::where('menu_code', $menuCode)->firstOrFail();
+        
         return view('ingredient-view', [
             'title' => "{$this->title} : View",
             'menu' => $menu,
