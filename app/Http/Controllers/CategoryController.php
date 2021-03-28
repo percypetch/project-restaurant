@@ -17,7 +17,7 @@ class CategoryController extends Controller
     }
 
     function show($categoryCode) {
-        $category = Category::where('code', $categoryCode)->firstOrFail();
+        $category = Category::where('category_code', $categoryCode)->firstOrFail();
         
         return view('category-view', [
             'title' => "{$this->title} : View",

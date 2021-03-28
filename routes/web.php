@@ -25,11 +25,9 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
-Route::get('/category', [CategoryController::class, 'list'])
-->name('category-list');
+Route::get('/category', [CategoryController::class, 'list'])->name('category-list');
+Route::get('/category/{category}', [CategoryController::class, 'show'])->name('category-view');
 
-Route::get('/category/{category}', [CategoryController::class, 'show'])
-->name('category-view');
 Route::get('/admin/ingredient', [IngredientController::class, 'list'])->name('admin.ingredient')->middleware('is_admin');;
 
 
