@@ -22,4 +22,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
+<<<<<<< HEAD
 /*test Petch
+=======
+//restadf
+>>>>>>> 15347da335bf1792c326f02980b33c0cd7689764
