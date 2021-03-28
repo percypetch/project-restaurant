@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">User Interface</div>
+                <div class="card-header">{{$title}}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -26,18 +26,26 @@
                     </div>
                     @endif
                     
-                    <table>
-                    @foreach($categories as $category)
-                    <tr>
-                    <th>
-                    <a href="{{ route('category-view', ['category' => $category->category_code,]) }}">
-                    {{ $category->code }}
-                    </a>
-                    </th>
-                    <td>{{ $category->name }}</td>
-                    </tr>
-                    @endforeach
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        @php($i=1)
+                        @foreach($categories as $row)
+                        <tbody>
+                            <tr>
+                            <th scope="row">{{$i++}}</th>
+                            <td><a href="{{ route('category-view', ['category' => $row->category_code,]) }}">{{ $row->category_code }}</a></td>
+                            <td>{{ $row->category_name }}</td>
+                            </tr>
+                        @endforeach  
+                        </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
