@@ -5,8 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{$title}}</div>
-
+                <div class="card-header">{{$title}}
+                <div class="text-center">
+                    <nav>
+                        <br>
+                        <ul class="list-group list-group-horizontal " style="display: inline-flex;">
+                            <li class="list-group-item">
+                                <a href="{{ route('category-create-form')}}">New Category</a> 
+                            </li>
+                        </ul>
+                    </nav>
+                    </div>
+                </div>
+                
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -25,7 +36,7 @@
                         <strong>{{ $message }}</strong>
                     </div>
                     @endif
-                    
+
                     <div class="text-center">
                     <form action="{{ route('category-list') }}" method="get">
                     <label><b>Search </b><input type="text" name="term" value="{{ $term }}" /></label>
@@ -36,7 +47,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Code</th>
                             <th scope="col">Name</th>
                             </tr>
@@ -45,7 +55,6 @@
                         @foreach($categories as $row)
                         <tbody>
                             <tr>
-                            <th scope="row">{{$i++}}</th>
                             <td><a href="{{ route('category-view', ['category' => $row->category_code,]) }}">{{ $row->category_code }}</a></td>
                             <td>{{ $row->category_name }}</td>
                             </tr>

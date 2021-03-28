@@ -30,10 +30,22 @@ class CategoryController extends Controller
 
     function show($categoryCode) {
         $category = Category::where('category_code', $categoryCode)->firstOrFail();
-        
+
         return view('category-view', [
             'title' => "{$this->title} : View",
             'category' => $category,
         ]);
     }
+
+    function createForm() {
+        return view('category-create', [
+            'title' => "{$this->title} : Create",
+        ]);
+    }
+        
+        function create(Request $request) {
+            $category = Category::create($request->getParsedBody());
+        
+            return redirect()->route('category-list');
+        }
 }
