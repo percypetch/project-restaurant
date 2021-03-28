@@ -25,19 +25,16 @@
                         <strong>{{ $message }}</strong>
                     </div>
                     @endif
-  
                     <div class="text-center">
-                    <form action="{{ route('ingredient-list') }}" method="get">
+                    <form action="{{ route('menu-list') }}" method="get">
                     <label><b>Search </b><input type="text" name="term" value="{{ $term }}" /></label>
                     </form>
                     </div>
 
                     {{ $ingredient->withQueryString()->links() }}
-
                     <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Code</th>
                             <th scope="col">Name</th>
                             </tr>
@@ -46,7 +43,6 @@
                         @foreach($ingredient as $row)
                         <tbody>
                             <tr>
-                            <th scope="row">{{$i++}}</th>
                             <td><a href="{{ route('ingredient-view', ['ingredient' => $row->ingredient_code,]) }}">
                             {{ $row->ingredient_code }}</a></td>
                             <td>{{ $row->ingredient_name }}</td>
