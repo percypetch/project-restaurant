@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{$title}} {{ $menu->menu_code }}
-
+                <div class="card-header ">{{$title}} {{ $menu->menu_code }}
+                <div class="text-center">
                 <nav>
                     <br>
-                    <ul class="list-group list-group-horizontal ">
+                    <ul class="list-group list-group-horizontal " style="display: inline-flex;">
                         <li class="list-group-item">
                             <a href="">Show Categories</a> 
                         </li>
@@ -27,6 +27,8 @@
                         </li>
                     </ul>
                 </nav>
+                </div>
+                
 
 
                 </div>
