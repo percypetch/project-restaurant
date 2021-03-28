@@ -26,6 +26,13 @@
                     </div>
                     @endif
                     
+                    <div class="text-center">
+                    <form action="{{ route('category-list') }}" method="get">
+                    <label><b>Search </b><input type="text" name="term" value="{{ $term }}" /></label>
+                    </form>
+                    </div>
+
+                    {{ $categories->withQueryString()->links() }}
                     <table class="table">
                         <thead>
                             <tr>

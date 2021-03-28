@@ -9,10 +9,22 @@ class CategoryController extends Controller
 {
     private $title = 'Category';
 
-    function list() {
+    function list(Request $request) {
+        $data = $request->getQueryParams();
+        $query = Category::orderBy('category_code');
+        $term = (key_exists('term', $data))? $data['term'] : '';
+        foreach(preg_split('/\s+/', $term) as $word) {
+            $query->where(function($innerQuery) use ($word) {
+                return $innerQuery
+                    ->where('category_code', 'LIKE', "%{$word}%")
+                    ->orWhere('category_name', 'LIKE', "%{$word}%");
+            });
+        }
+
         return view('category-list', [
+            'term' => $term,
+            'categories' => $query->paginate(5),
             'title' => "{$this->title} : List",
-            'categories' => Category::orderBy('category_code')->get(),
         ]);
     }
 
