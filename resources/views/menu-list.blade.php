@@ -49,18 +49,15 @@
                     <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Code</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">&nbsp</th>
                             </tr>
                         </thead>
-                        @php($i=1)
                         @foreach($menu as $row)
                         <tbody>
                             <tr>
-                            <th scope="row">{{$i++}}</th>
                             <td> <a href="{{ route('menu-view', ['menu' => $row->menu_code,]) }}">
                                 {{ $row->menu_code }}</a></td>
                             <td> <a href="">
