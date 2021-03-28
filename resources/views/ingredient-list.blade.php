@@ -5,7 +5,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">User Interface</div>
+                <div class="card-header">{{$title}}
+                <div class="text-center">
+                <nav>
+                    <br>
+                    <ul class="list-group list-group-horizontal " style="display: inline-flex;">
+                        <li class="list-group-item">
+                            <a href="">Create Ingredient</a> 
+                        </li>
+                        </ul>
+                </nav>
+                </div>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -26,14 +37,14 @@
                     </div>
                     @endif
                     <div class="text-center">
-                    <form action="{{ route('menu-list') }}" method="get">
+                    <form action="{{ route('ingredient-list') }}" method="get">
                     <label><b>Search </b><input type="text" name="term" value="{{ $term }}" /></label>
                     </form>
                     </div>
 
                     {{ $ingredient->withQueryString()->links() }}
                     <table class="table">
-                        <thead>
+                        <thead style="text-align: center;">
                             <tr>
                             <th scope="col">Code</th>
                             <th scope="col">Name</th>
