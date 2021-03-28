@@ -31,6 +31,9 @@ Route::get('/category/{category}', [CategoryController::class, 'show'])->name('c
 Route::get('/admin/ingredient', [IngredientController::class, 'list'])->name('admin.ingredient')->middleware('is_admin');;
 
 
-Route::get('/menu', [MenuController::class, 'list'])->name('menu-list');
-/*test Petch
-//restadf
+Route::get('/menu', [MenuController::class, 'list'])
+->name('menu-list');
+
+Route::get('/menu/{menu}', [MenuController::class, 'show'])
+->name('menu-view');
+
