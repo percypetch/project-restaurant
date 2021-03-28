@@ -26,7 +26,7 @@
                     </div>
                     @endif
                     
-                    <div class="alicen">
+                    <div class="text-center">
                     <form action="{{ route('category-list') }}" method="get">
                     <label><b>Search </b><input type="text" name="term" value="{{ $term }}" /></label>
                     </form>
