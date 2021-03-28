@@ -26,7 +26,7 @@ class MenuController extends Controller
         return view('menu-list', [
             'term' => $term,
             'title' => "{$this->title} : List",
-            //'menus' => $query->paginate(3),
+            'menu' => $query->paginate(3),
         ]);
         }
 }

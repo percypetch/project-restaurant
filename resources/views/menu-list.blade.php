@@ -26,8 +26,24 @@
                     </div>
                     @endif
 
-
-
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        @php($i=1)
+                        @foreach($menu as $row)
+                        <tbody>
+                            <tr>
+                            <th scope="row">{{$i++}}</th>
+                            <td>{{ $row->menu_name }}</td>
+                            <td>{{ $row->menu_price }}</td>
+                            </tr>
+                        @endforeach  
+                        </tbody>
                     </table>
                     
                 </div>
