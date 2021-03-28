@@ -47,4 +47,40 @@ class MenuController extends Controller
                 'ingredient' => $ingredient
             ]);
             }
+
+            function createForm(Request $request) {
+                $this->authorize('update',Menu::class);
+                $category = Category::orderBy('category_code');
+                $ingredient = Ingredient::orderBy('ingredient_code');
+                return view('product-create', [
+                  'title' => "{$this->title} : Create",
+                  'category' => $categories->get(),
+                  'ingredient' => $ingredient->get(),
+                ]);
+            }
+        
+            function create(Request $request) {
+                $this->authorize('update',Menu::class);
+        
+                try 
+                {
+                    $data = $request->getParsedBody();
+                    $menu = new Menu();
+                    $menu->fill($data);
+                    $menu->category()->associate($data['category']);
+                    $menu->ingredient()->associate($data['ingredient']);
+                    $menu->save();
+        
+                    return redirect()->route('menu-list')
+                    ->with('status', "Menu {$menu->menu_code} was created.");
+                 } 
+        
+                 catch(\Exception $excp) 
+                 {
+                    return back()->withInput()->withErrors([
+                    'input' => $excp->getMessage(),
+                    ]);
+                }
+              
+            }
 }
