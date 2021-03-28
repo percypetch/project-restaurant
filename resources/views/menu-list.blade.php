@@ -26,7 +26,9 @@
                     </div>
                     @endif
 
-                    
+
+
+                    </table>
                     
                 </div>
             </div>
